@@ -1,7 +1,7 @@
 # 商业授权说明（COMMERCIAL LICENSE）
 
 本仓库对**个人非商业使用免费**，**商业使用需单独书面授权**。
-法律依据见 [LICENSE](LICENSE)（PolyForm Noncommercial License 1.0.0 + 附加条款）。
+许可条款见 [LICENSE](LICENSE)（PolyForm Noncommercial License 1.0.0）；商业授权的范围、申请方式与溯源机制以本文为准。
 
 ## 可以免费做（无需授权）
 
