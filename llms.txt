@@ -1,0 +1,31 @@
+# founder-guide（创业者指南）
+
+> founder-guide 是一个 Agent Skill：把一本书或一份书单，按固定标准蒸馏成约 3 万字、可直接阅读的中文方法论成书。已在 46 本经典商业与个人成长书上跑通并固化为标准。
+
+## 关键事实
+
+- 类型：Agent Skill（可被 `npx skills add` 安装）
+- 仓库：https://github.com/GodMaking/founder-guide-skill
+- 输入：PDF / 飞书文档链接 / 网页 / 纯文本 / 书名
+- 输出：成书正文 `final.md`（约 3 万字）+ 原书 `book.pdf` + `outline.md` + `chapter-ledger.md`
+- 已入库：46 本，覆盖创业、财商、经济、商业思维、投资、营销、职场、个人成长、心态疗愈 9 个维度
+- 质量门槛：非空白字数在目标 ±10%、章数 ≥8 且编号连续、中文占比 ≥70%、无占位符、无空章节
+- 与"AI 总结"的区别：总结提炼要点（数千字），成书重建一本书（约 3 万字、有章节结构与论证线）
+- 版权：仓库不含任何受版权保护书籍的正文或成书全文
+
+## 文档
+
+- [README](https://github.com/GodMaking/founder-guide-skill/blob/main/README.md)：完整说明、产出物、对比、FAQ
+- [SKILL.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/SKILL.md)：问题契约、执行流程、校验门槛、边界
+- [books_index.json](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/assets/samples/books_index.json)：46 本已入库书目索引
+- [SAMPLE-FORMAT.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/assets/samples/SAMPLE-FORMAT.md)：成书结构范式（不含原文）
+
+## 安装与使用
+
+```bash
+npx -y skills add GodMaking/founder-guide-skill -g --all
+```
+
+```text
+使用 $founder-guide 把这本书蒸馏成成书：<PDF 路径 / 书单链接 / 书名>
+```

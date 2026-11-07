@@ -1,0 +1,4 @@
+interface:
+  display_name: "founder-guide"
+  short_description: "创业者指南：46本经典书的方法论蒸馏库，可继续把新书蒸馏成方法论成书"
+  default_prompt: "使用 $founder-guide 按已验证的46本标准把源书蒸馏成约3万字方法论成书：解析全文→初始化四件套→逐章成稿→合并final.md→distill_check校验通过后交付。"

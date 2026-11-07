@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+evals/
+.final_check.*
+.verify.txt
+# 成书样例正文不入库（版权），仅保留索引与结构范式
+skills/founder-guide/assets/samples/*.md
+!skills/founder-guide/assets/samples/SAMPLE-FORMAT.md

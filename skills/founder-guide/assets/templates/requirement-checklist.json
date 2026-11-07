@@ -1,0 +1,81 @@
+{
+  "topic": "将斯宾塞·约翰逊《谁动了我的奶酪？》蒸馏成约3万字中文成书，忠实转述寓言故事、墙语与下午茶讨论的应对变化之道",
+  "contentProfile": {
+    "id": "general",
+    "genreGuide": "general",
+    "audience": "正经历变化、转型或卡在原地不敢动，想重新找回行动勇气的人",
+    "purpose": "蒸馏成书，交付本地Markdown成书与原书PDF"
+  },
+  "structureRules": {
+    "headingPolicy": "chinese-publication",
+    "maxContentFilesPerBatch": 2
+  },
+  "sourcePolicy": {
+    "mode": "user-materials-only",
+    "minimumDirections": 3,
+    "requireGapReview": true
+  },
+  "sourceInputs": [
+    {
+      "id": "source-book",
+      "kind": "pdf",
+      "path": "book.pdf",
+      "writePolicy": "read-only"
+    }
+  ],
+  "delivery": {
+    "mode": "markdown-only",
+    "userExplicitlyRequested": true,
+    "requestEvidence": "用户多轮明确要求把书单逐本蒸馏成书，每本产出约3万字成书+原书PDF，落盘本地并上传飞书Drive根目录交付链接；用户明确不要飞书云文档，全程 SKIP_LARK=1。",
+    "requireReadBack": false
+  },
+  "requirements": [
+    {
+      "id": "R1",
+      "requirement": "用户要求把书单中的书逐本蒸馏成书，本册产出约3万字中文成书Markdown，与原书PDF一同上传飞书Drive根目录并交付链接",
+      "priority": "main",
+      "in_scope": "yes",
+      "carrier": "16章正文与交付链（make deliver + drive上传）",
+      "resolution": "已产出16章共32582非空白字符成书final.md，与原书PDF一起上传飞书Drive根目录并交付链接"
+    },
+    {
+      "id": "R2",
+      "requirement": "成书忠实转述原书寓言故事、角色行为、墙上留言与下午茶讨论，保留关键原句与角色名，不虚构不发挥",
+      "priority": "main",
+      "in_scope": "yes",
+      "carrier": "各章正文与must-contain校验",
+      "resolution": "16章正文忠实转述寓言故事、四角色、13条墙语、7条心得与下午茶讨论，保留角色名与关键原句"
+    },
+    {
+      "id": "R3",
+      "requirement": "全书目标字数31040非空白字符（27936-34144），16章各1940字",
+      "priority": "main",
+      "in_scope": "yes",
+      "carrier": "wordCountRules与chapter-ledger",
+      "resolution": "全书目标31040，deliver产出32582非空白字符，落27936-34144区间，16章各1940规划"
+    },
+    {
+      "id": "R4",
+      "requirement": "正文去AI味，S/P/C/B四层质量门槛7.5，连接词、副词、分号、引号密度合规",
+      "priority": "main",
+      "in_scope": "yes",
+      "carrier": "make quality与正文修订",
+      "resolution": "make quality通过，S/P/C/B四层门槛7.5，平均8.53，连接词、副词、分号、引号密度合规"
+    },
+    {
+      "id": "R5",
+      "requirement": "交付物为本地final.md与原书book.pdf两个文件，上传飞书Drive根目录，每本只上传一次不重复",
+      "priority": "main",
+      "in_scope": "yes",
+      "carrier": "drive上传+inspect核验",
+      "resolution": "本地final.md与book.pdf两文件上传飞书Drive根目录，inspect核验后交付"
+    }
+  ],
+  "wordCountRules": [
+    {
+      "id": "total-length",
+      "target": 31040,
+      "tolerancePercent": 10
+    }
+  ]
+}
