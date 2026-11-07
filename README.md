@@ -138,6 +138,8 @@ A：可以。`scripts/distill_check.py` 可独立运行，传入任意成书目�
 ```text
 founder-guide-skill/
 ├── README.md
+├── LICENSE                     # PolyForm Noncommercial 1.0.0（非商业免费，商用需授权）
+├── COMMERCIAL-LICENSE.md       # 商业授权说明、一客一码与维权路径
 ├── llms.txt                    # 给 AI 引擎读取的仓库摘要
 └── skills/
     └── founder-guide/
@@ -161,6 +163,19 @@ founder-guide-skill/
 - Python 3（脚本纯标准库）
 - `pdftotext`（poppler-utils），仅处理 PDF 时需要
 - `lark-cli`，仅处理飞书/豆包文档时需要
+
+## 许可与商业授权
+
+本仓库采用 **PolyForm Noncommercial License 1.0.0**：
+
+- **免费**：个人学习与研究、非商业读书会、学校与公益机构内部使用
+- **需授权**：出售（无论是 Skill 还是它的产出）、付费课程/社群、收费代做、打包进付费产品、企业内部商用培训、转售与分销
+
+一句话：**可以免费用，不能拿去卖；要卖，先取得书面商业授权。**
+
+条款全文见 [LICENSE](LICENSE)，申请方式与"一客一码"溯源机制见 [商业授权说明](COMMERCIAL-LICENSE.md)。
+
+需要说明的是：公开仓库的协议**无法在技术上阻止盗卖**，它的作用是明确授权边界、让平台投诉与维权有依据；真正降低风险靠一客一码溯源、软著登记与平台知识产权投诉。
 
 ## 版权说明
 
