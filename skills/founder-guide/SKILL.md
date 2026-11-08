@@ -47,7 +47,7 @@ Skill 应交付的结果：NN-书名/ 工作目录（四件套 + manuscript + de
 4. **逐章成稿**：每章一个 `manuscript/chNN-标题.md`，章标题必须"第X章"（汉字数字）；层级"一、"→"（一）"；忠实转述原书，保留关键原句/角色名/专有名词，不虚构不发挥；去 AI 味（少连接词、少模板句、少排比堆砌）
 5. **合并 final.md**：按章节顺序合并为 `deliverables/final.md`，顶部保留 `# 书名（蒸馏成书）` 标题与章节结构
 6. **校验**：运行 `scripts/distill_check.py <工作目录>`，全部通过才交付
-7. **交付**：本地 `final.md` + 原书 `book.pdf`；用户要求云盘时上传 Drive 根目录并交付链接；最终回复 ≤300 字/≤8 行
+7. **交付**：本地 `final.md` + 原书 `book.pdf`；用户要求云盘时上传 Drive 根目录并交付链接；最终回复 ≤300 字/≤8 行。**商业售卖交付时**先用 `scripts/issue_license.py` 为该买家生成唯一授权编号，并把版权页追加到 `final.md` 末尾
 
 ## 校验门槛（完成证据，全部必须通过）
 
@@ -71,6 +71,7 @@ Skill 应交付的结果：NN-书名/ 工作目录（四件套 + manuscript + de
 - `assets/samples/`：`books_index.json`（46 本已入库书目索引）+ `SAMPLE-FORMAT.md`（成书结构范式，仅格式不含原书正文；本仓库不收录任何成书全文）
 - `scripts/make_workspace.py`：初始化工作目录四件套
 - `scripts/distill_check.py`：独立校验（不依赖外部工具，Python 3 标准库）
+- `scripts/issue_license.py`：一客一码授权（生成唯一编号、授权书、成书版权页与本地台账；可选零宽水印嵌入与解码）。台账与授权书含买家信息，只存本地，禁止入库
 - `references/distill-workflow.md`：逐章写作细则与去 AI 味规范
 
 ## 边界

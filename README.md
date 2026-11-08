@@ -149,7 +149,8 @@ founder-guide-skill/
         │   └── distill-workflow.md   # 逐章写作细则与去 AI 味规范
         ├── scripts/
         │   ├── make_workspace.py     # 初始化四件套工作目录
-        │   └── distill_check.py      # 独立校验（纯标准库）
+        │   ├── distill_check.py      # 独立校验（纯标准库）
+        │   └── issue_license.py      # 一客一码：授权编号、授权书、版权页、溯源
         └── assets/
             ├── templates/            # 四件套模板
             └── samples/
@@ -174,6 +175,24 @@ founder-guide-skill/
 一句话：**可以免费用，不能拿去卖；要卖，先取得书面商业授权。**
 
 条款全文见 [LICENSE](LICENSE)，申请方式与"一客一码"溯源机制见 [商业授权说明](COMMERCIAL-LICENSE.md)。
+
+### 一客一码（卖出每一份都带唯一编号）
+
+`scripts/issue_license.py` 为每个买家生成唯一授权编号、授权书与成书版权页，并记入本地台账；台账只存本地、不入库。
+
+```bash
+# 单个买家：生成授权书 + 版权页
+python scripts/issue_license.py --buyer "张三" --order "订单号" --books all --output ./licenses
+
+# 直接把版权页写进成书末尾，并嵌入隐蔽水印（可与编号互相印证）
+python scripts/issue_license.py --buyer "张三" --books "01,46" \
+    --embed deliverables/final.md --output ./licenses
+
+# 拿到疑似盗版文件，反查它出自哪一份授权
+python scripts/issue_license.py --decode 疑似盗版.md
+```
+
+编号形如 `FG-20261109-2TD8U5TY`，与台账一一对应。买到盗版文件后跑一次 `--decode`，就能读出它来自哪个买家的哪一份授权。
 
 需要说明的是：公开仓库的协议**无法在技术上阻止盗卖**，它的作用是明确授权边界、让平台投诉与维权有依据；真正降低风险靠一客一码溯源、软著登记与平台知识产权投诉。
 
