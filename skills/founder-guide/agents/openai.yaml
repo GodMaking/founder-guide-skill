@@ -1,4 +1,4 @@
 interface:
   display_name: "founder-guide"
-  short_description: "创业者指南：46本经典书的方法论蒸馏库，可继续把新书蒸馏成方法论成书"
-  default_prompt: "使用 $founder-guide 按已验证的46本标准把源书蒸馏成约3万字方法论成书：解析全文→初始化四件套→逐章成稿→合并final.md→distill_check校验通过后交付。"
+  short_description: "创业者指南：用47本经典书的可执行方法带人判断方向、过四道闸门、按阶段落地动作"
+  default_prompt: "使用 $founder-guide 带我做创业判断：先问清五个事实（替代方案成本、付费证据、现金与月流出、手上最靠后的成果、最大可承受损失），再定阶段（S0-S5），用 startup_calc.py 算四道闸门（有用性、单位经济、时间、风险红线），最后给一张决策卡：做/小步验证/停 + 一个7天内动作 + 止损线。需要具体方法时从 book-map 取一本一条，落成动作。"

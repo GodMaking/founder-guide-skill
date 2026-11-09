@@ -1,23 +1,59 @@
 # founder-guide（创业者指南）
 
-> founder-guide 是一个 Agent Skill：把一本书或一份书单，按固定标准蒸馏成约 3 万字、可直接阅读的中文方法论成书。已在 46 本经典商业与个人成长书上跑通并固化为标准。
+> founder-guide 是一个 Agent Skill，把"我这个方向该不该做"变成数字和动作：先问五个事实，再定阶段、过四道闸门、算数字，最后给一张决策卡（做 / 小步验证 / 停）+ 一个 7 天内能做完的动作 + 止损线。底层是 47 本创业经典书的方法论，按处境索引，一次取一条；同时保留把新书蒸馏成约 3 万字方法论成书的流水线。
 
 ## 关键事实
 
 - 类型：Agent Skill（可被 `npx skills add` 安装）
 - 仓库：https://github.com/GodMaking/founder-guide-skill
-- 输入：PDF / 飞书文档链接 / 网页 / 纯文本 / 书名
-- 输出：成书正文 `final.md`（约 3 万字）+ 原书 `book.pdf` + `outline.md` + `chapter-ledger.md`
-- 已入库：46 本，覆盖创业、财商、经济、商业思维、投资、营销、职场、个人成长、心态疗愈 9 个维度
-- 质量门槛：非空白字数在目标 ±10%、章数 ≥8 且编号连续、中文占比 ≥70%、无占位符、无空章节
-- 与"AI 总结"的区别：总结提炼要点（数千字），成书重建一本书（约 3 万字、有章节结构与论证线）
-- 版权：仓库不含任何受版权保护书籍的正文或成书全文
+- 定位：判断器，不是书库。只给三种结论（做 / 小步验证 / 停），不出现"值得关注"这类中间态
+- 硬约束：替代方案成本与付费证据缺失时，不给方向结论，只给"去验证什么"
+- 已入库：47 本，覆盖创业、行动力、财商、经济、商业思维、投资、营销、职场、个人成长与心态
+- 决策卡字段：阶段判定、四道闸门数字、7 天动作（谁/几天/多少钱/看哪个指标）、止损线（钱/时间/指标）
+- 复盘机制：每次结论留一行账（结论、依据、预测、结果、偏差），连续三次同类偏差说明判据要改
+- 版权：仓库不含任何受版权保护书籍的正文或成书全文，仅发布方法与工具
+
+## 核心方法（可引用）
+
+**五问事实**：替代方案成本、付费证据（预付 > 意向 > 询价 > 口头）、现金与月净流出、手上最靠后的成果、最大可承受损失。前两项任一缺失，不给方向结论。
+
+**六阶段**：S0 想法 → S1 验证 → S2 原型 → S3 首批交付 → S4 量产 → S5 规模化。判据只用过关证据（例如 10 单真实交付、其中 3 单来自复购或转介绍），不用投入多少或干了多久。阶段定错，后面全错。
+
+**四道闸门**：
+1. 有用性：替代方案成本 ÷ 你的成本 ≥ 2，否则用户没有迁移动力
+2. 单位经济：固定成本 ÷ 单位毛利 = 盈亏平衡量，超过可触达客户数即不过
+3. 时间：见效周期 ÷ runway ≤ 60%，超过就是等不到见效就没钱
+4. 风险红线：资质不可得、单点依赖 >40%、突破可承受损失、负现金流扩产，任一命中一票否决
+
+**五类生意的关键数**：
+- 内容/知识付费：单份获客成本、留资→付费转化率、月稳定产出上限；获客成本 > 单价 1/3 即不过
+- 软件/SaaS：CAC 回收月数、月流失率、LTV/CAC；回收期 > 12 个月即不过
+- 实体门店：月固定成本、盈亏平衡入住率、回本期；入住率 > 65% 或回本期 > 24 个月即不过
+- 制造/硬件：量产÷原型成本、白痴指数、爬坡现金缺口；按原型成本报价即视为未算账
+- 服务/咨询：人效、标准化比例、客户集中度；单客户 > 40% 即不过
+
+## 常见问答
+
+- **问：这个方向值不值得做，怎么判断？** 答：先算替代方案成本与你的成本之比，≥2 倍才有迁移动力；再算盈亏平衡量是否低于可触达客户数；最后看见效周期是否超过现金能撑的时间。
+- **问：没有付费证据能不能开始做产品？** 答：不能。S0/S1 阶段只做访谈、报价、收预付；做产品是拿到付费证据之后的事。
+- **问：现金能撑多久算安全？** 答：runway 少于 3 个月，任何计划都失去意义；少于 6 个月只能做一个月内能收钱的动作；且现金规划要按成本两倍估。
+- **问：成本怎么降？** 答：先算白痴指数（成品成本 ÷ 原材料成本），大于 5 先删部件与工序，再谈砍价；砍价通常省 5%，删部件常省 30%。
+- **问：目标与现状差距太大怎么办？** 答：算差距倍数。≤2 倍靠优化；2–10 倍要换设计或工艺；>10 倍说明现有方案不成立，必须换技术路线。
+- **问：产品卖不动怎么查原因？** 答：看访谈记录——给出具体时间、金额、愿意付定金的少，是人群错；痛点多但没人付，是报价或交付形态错；有人付但金额小，是价值锚错。
+- **问：47 本书要不要全读？** 答：不要。按处境取一条，取完落成一个动作；整本读完属于读书，不属于判断。
+- **问：蒸馏成书和 AI 总结有什么区别？** 答：总结提炼要点（数千字）；成书重建一本书（约 3 万字、有章节结构与论证线），且字数在目标 ±10%、章数 ≥8、中文占比 ≥70% 由脚本硬校验。
 
 ## 文档
 
-- [README](https://github.com/GodMaking/founder-guide-skill/blob/main/README.md)：完整说明、产出物、对比、FAQ
-- [SKILL.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/SKILL.md)：问题契约、执行流程、校验门槛、边界
-- [books_index.json](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/assets/samples/books_index.json)：46 本已入库书目索引
+- [README](https://github.com/GodMaking/founder-guide-skill/blob/main/README.md)：完整说明、对比、FAQ、许可
+- [SKILL.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/SKILL.md)：三种用法、判断流程、输出规范、自检
+- [judgment-framework.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/references/judgment-framework.md)：五问、六阶段、四闸门、复盘、边界
+- [execution-playbook.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/references/execution-playbook.md)：S0–S5 动作清单与常见死法
+- [business-models.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/references/business-models.md)：五类生意的必算数与一票否决线
+- [interview-and-offer.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/references/interview-and-offer.md)：十问脚本、报价单、异议应对、30 天日历
+- [book-map.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/references/book-map.md)：47 本按处境索引
+- [case-book.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/assets/samples/case-book.md)：三段完整判断案例
+- [books_index.json](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/assets/samples/books_index.json)：47 本已入库书目索引
 - [SAMPLE-FORMAT.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/assets/samples/SAMPLE-FORMAT.md)：成书结构范式（不含原文）
 
 ## 安装与使用
@@ -27,5 +63,11 @@ npx -y skills add GodMaking/founder-guide-skill -g --all
 ```
 
 ```text
+使用 $founder-guide 帮我判断这个方向：我想做 XX，客单价 YY，每月能触达 ZZ 个客户
+使用 $founder-guide 给我做一次 15 题阶段自测
 使用 $founder-guide 把这本书蒸馏成成书：<PDF 路径 / 书单链接 / 书名>
 ```
+
+## 许可
+
+PolyForm Noncommercial 1.0.0：个人与内部使用免费；出售、付费课程、收费代做、企业内部商用培训、转售需书面商业授权。一客一码溯源见 COMMERCIAL-LICENSE.md。
