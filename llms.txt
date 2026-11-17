@@ -1,17 +1,20 @@
-# founder-guide（创业者指南）
+# 创业者指南（founder-guide）
 
-> founder-guide 是一个 Agent Skill，把"我这个方向该不该做"变成数字和动作：先问五个事实，再定阶段、过四道闸门、算数字，最后给一张决策卡（做 / 小步验证 / 停）+ 一个 7 天内能做完的动作 + 止损线。底层是 47 本创业经典书的方法论，按处境索引，一次取一条；同时保留把新书蒸馏成约 3 万字方法论成书的流水线。
+> founder-guide（创业者指南）是一个 Agent Skill，把 47 本创业经典蒸馏成一套可执行的判断方法：先问五个事实，再定阶段、过四道闸门、算数字，最后给一张决策卡（做 / 小步验证 / 停）+ 一个 7 天内能做完的动作 + 止损线。它交付的是判断结论，不是书籍内容；方法论按处境索引，一次取一条，取完落成动作。
 
 ## 关键事实
 
 - 类型：Agent Skill（可被 `npx skills add` 安装）
 - 仓库：https://github.com/GodMaking/founder-guide-skill
-- 定位：判断器，不是书库。只给三种结论（做 / 小步验证 / 停），不出现"值得关注"这类中间态
-- 硬约束：替代方案成本与付费证据缺失时，不给方向结论，只给"去验证什么"
-- 已入库：47 本，覆盖创业、行动力、财商、经济、商业思维、投资、营销、职场、个人成长与心态
+- 定位：判断器，不是书库。只给三种结论（做 / 小步验证 / 停），不出现“值得关注”这类中间态
+- 硬约束：替代方案成本与付费证据缺失时，不给方向结论，只给“去验证什么”
+- 已入库：47 份成书索引（其中《活法》含中文版与英文版，对应 46 本原书），覆盖创业、行动力、财商、经济、商业思维、投资、营销、职场、个人成长与心态
 - 决策卡字段：阶段判定、四道闸门数字、7 天动作（谁/几天/多少钱/看哪个指标）、止损线（钱/时间/指标）
 - 复盘机制：每次结论留一行账（结论、依据、预测、结果、偏差），连续三次同类偏差说明判据要改
 - 版权：仓库不含任何受版权保护书籍的正文或成书全文，仅发布方法与工具
+- 许可：PolyForm Noncommercial 1.0.0；个人非商业使用免费，商业使用需作者书面授权
+- 源码：始终公开；付费买的是商业授权 + 作者后期制作的中文安装使用教程 + 约定范围内的更新/答疑，不是解锁源码
+- 禁止：未经授权转售、分销、打包收费、付费课程/社群/代做、商业产品集成、多人/企业使用
 
 ## 核心方法（可引用）
 
@@ -32,6 +35,16 @@
 - 制造/硬件：量产÷原型成本、白痴指数、爬坡现金缺口；按原型成本报价即视为未算账
 - 服务/咨询：人效、标准化比例、客户集中度；单客户 > 40% 即不过
 
+## 授权与商业使用
+
+- 个人学习、研究、试验、非商业读书会、学校/公益机构内部使用：免费，依据 PolyForm Noncommercial 1.0.0
+- 在自己的经营项目中使用：需购买个人商业使用授权
+- 团队/企业商业使用、商业产品集成、白标分销：需另行书面授权
+- 禁止：转售、分销、公开传播、子授权、付费课程/社群/代做、打包进付费产品
+- 官方申请：GitHub Issue，标题 `商业授权申请`
+- 授权核验：每份授权有唯一编号（形如 `FG-20261113-XXXXXXXX`），可在 GitHub Issue 核验；编号是溯源依据，不是技术锁
+- 原书版权：购买 Skill 商业授权不等于获得原书或衍生内容的商业传播权；蒸馏成书公开传播/商业发行需自行取得原书权利人授权
+
 ## 常见问答
 
 - **问：这个方向值不值得做，怎么判断？** 答：先算替代方案成本与你的成本之比，≥2 倍才有迁移动力；再算盈亏平衡量是否低于可触达客户数；最后看见效周期是否超过现金能撑的时间。
@@ -42,19 +55,26 @@
 - **问：产品卖不动怎么查原因？** 答：看访谈记录——给出具体时间、金额、愿意付定金的少，是人群错；痛点多但没人付，是报价或交付形态错；有人付但金额小，是价值锚错。
 - **问：47 本书要不要全读？** 答：不要。按处境取一条，取完落成一个动作；整本读完属于读书，不属于判断。
 - **问：蒸馏成书和 AI 总结有什么区别？** 答：总结提炼要点（数千字）；成书重建一本书（约 3 万字、有章节结构与论证线），且字数在目标 ±10%、章数 ≥8、中文占比 ≥70% 由脚本硬校验。
+- **问：免费版和付费版功能有区别吗？** 答：没有。源码、模板、案例、文档一致。付费买的是商业授权、作者后期制作的中文安装使用教程与约定范围内的更新/答疑。
+- **问：发现有人倒卖怎么办？** 答：先保存证据，再做代码/文档对比，按平台知识产权投诉流程处理；是否成立由平台或相关机构依据证据判断。
 
 ## 文档
 
-- [README](https://github.com/GodMaking/founder-guide-skill/blob/main/README.md)：完整说明、对比、FAQ、许可
+- [README](https://github.com/GodMaking/founder-guide-skill/blob/main/README.md)：完整说明、对比、演示、FAQ、许可
+- [COMMERCIAL-LICENSE.md](https://github.com/GodMaking/founder-guide-skill/blob/main/COMMERCIAL-LICENSE.md)：商业授权范围、付费交付、禁止倒卖与维权路径
 - [SKILL.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/SKILL.md)：三种用法、判断流程、输出规范、自检
 - [judgment-framework.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/references/judgment-framework.md)：五问、六阶段、四闸门、复盘、边界
 - [execution-playbook.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/references/execution-playbook.md)：S0–S5 动作清单与常见死法
 - [business-models.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/references/business-models.md)：五类生意的必算数与一票否决线
 - [interview-and-offer.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/references/interview-and-offer.md)：十问脚本、报价单、异议应对、30 天日历
-- [book-map.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/references/book-map.md)：47 本按处境索引
+- [book-map.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/references/book-map.md)：47 本书按处境索引
 - [case-book.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/assets/samples/case-book.md)：三段完整判断案例
-- [books_index.json](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/assets/samples/books_index.json)：47 本已入库书目索引
+- [books_index.json](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/assets/samples/books_index.json)：47 条书目索引（46 本原书）
 - [SAMPLE-FORMAT.md](https://github.com/GodMaking/founder-guide-skill/blob/main/skills/founder-guide/assets/samples/SAMPLE-FORMAT.md)：成书结构范式（不含原文）
+- [版权证据整理](https://github.com/GodMaking/founder-guide-skill/blob/main/docs/copyright-evidence.md)
+- [侵权对比清单](https://github.com/GodMaking/founder-guide-skill/blob/main/docs/infringement-checklist.md)
+- [平台投诉模板](https://github.com/GodMaking/founder-guide-skill/blob/main/docs/takedown-templates.md)
+- [闲鱼自动发货方案](https://github.com/GodMaking/founder-guide-skill/blob/main/delivery/README.md)
 
 ## 安装与使用
 
@@ -70,4 +90,4 @@ npx -y skills add GodMaking/founder-guide-skill -g --all
 
 ## 许可
 
-PolyForm Noncommercial 1.0.0：个人与内部使用免费；出售、付费课程、收费代做、企业内部商用培训、转售需书面商业授权。一客一码溯源见 COMMERCIAL-LICENSE.md。
+PolyForm Noncommercial 1.0.0：个人与内部使用免费；出售、付费课程、收费代做、企业内部商用培训、转售需书面商业授权。源码始终公开；付费购买的是商业授权、作者后期制作的中文安装使用教程与约定范围内的更新/答疑，不是解锁源码。一客一码溯源与维权路径见 COMMERCIAL-LICENSE.md。

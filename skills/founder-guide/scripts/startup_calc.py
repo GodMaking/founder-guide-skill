@@ -29,8 +29,11 @@ def line(title):
 
 
 def verdict_value(substitute, mine):
-    ratio = substitute / mine if mine > 0 else float("inf")
     line("有用性闸门")
+    if mine <= 0:
+        print("  你的方案成本必须大于 0，否则倍数没有意义")
+        return None
+    ratio = substitute / mine
     print("  替代方案成本 / 你的方案成本 = {} / {} = {:.2f} 倍".format(
         money(substitute), money(mine), ratio))
     if ratio >= 2:
@@ -60,7 +63,7 @@ def verdict_unit(price, variable, fixed, reach):
         return cm
     be = fixed / cm
     print("  盈亏平衡量 = {} / {} = {:.0f} 件/月".format(money(fixed), money(cm), be))
-    if reach:
+    if reach is not None:
         cover = reach / be if be > 0 else float("inf")
         print("  可触达客户 {:.0f} 件/月，覆盖盈亏平衡的 {:.1f} 倍".format(reach, cover))
         if cover >= 2:
@@ -132,7 +135,7 @@ def verdict_runway(cash, burn, lead_months):
     else:
         print("  判定：可执行。但成本要按两倍估，所以真实可用周期按 {} 个月算".format(
             int(months // 2)))
-    if lead_months:
+    if lead_months is not None:
         ratio = lead_months / months
         print("  见效周期 {} 个月，占 runway 的 {:.0%}".format(lead_months, ratio))
         if ratio > 0.6:

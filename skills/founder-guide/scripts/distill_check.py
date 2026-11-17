@@ -7,7 +7,7 @@
 检查项（全部通过才交付）:
   1. 四件套齐全: requirement-checklist.json / outline.md / chapter-ledger.md / deliverables/final.md
   2. final.md 非空白字数 ∈ [target×(1−10%), target×(1+10%)]
-  3. 章节数 ≥ 8 且编号 ch01 起连续
+  3. 章节数 ≥ 8 且编号从第一章起连续
   4. 章标题格式 "# 第X章"（汉字数字）
   5. 无占位符: TODO / 待补 / 占位 / xxx / Lorem / 待插入
   6. 中文占比 ≥ 70%
@@ -21,9 +21,26 @@ import re
 import sys
 
 CN_NUM = "零〇一二三四五六七八九十百千万两"
-PLACEHOLDER_RE = re.compile(r"TODO|待补|占位|待插入|Lorem|xxx|XXX|\[待|（待|\(待")
+CN_DIGITS = {"零": 0, "〇": 0, "一": 1, "二": 2, "两": 2, "三": 3, "四": 4,
+             "五": 5, "六": 6, "七": 7, "八": 8, "九": 9}
+CN_UNITS = {"十": 10, "百": 100, "千": 1000, "万": 10000}
+PLACEHOLDER_RE = re.compile(r"TODO|待补|占位|待插入|待定|Lorem|xxx|XXX|\[待|（待|\(待")
 HEADING_RE = re.compile(r"^(#+)\s+(.+?)\s*#*\s*$")
 CHAPTER_RE = re.compile(rf"^#?\s*第[{CN_NUM}]+章(?:\s|\Z)")
+
+
+def cn_to_int(s: str) -> int:
+    total, number = 0, 0
+    for ch in s:
+        if ch in CN_DIGITS:
+            number = CN_DIGITS[ch]
+        elif ch in CN_UNITS:
+            unit = CN_UNITS[ch]
+            if number == 0:
+                number = 1
+            total += number * unit
+            number = 0
+    return total + number
 
 
 def nonblank(s: str) -> int:
@@ -39,16 +56,16 @@ def cjk_ratio(s: str) -> float:
 
 
 def split_chapters(text: str):
-    """按 '# 第X章' 一级标题切分章节。"""
+    """按 '# 第X章' 一级标题切分章节，并解析汉字章节号。"""
     lines = text.splitlines()
     chapters = []
     cur = None
     for ln in lines:
-        m = re.match(r"^#\s+第[%s]+章" % CN_NUM, ln)
+        m = re.match(r"^#\s+第([%s]+)章" % CN_NUM, ln)
         if m:
             if cur is not None:
                 chapters.append(cur)
-            cur = {"title": ln.strip(), "body": []}
+            cur = {"num": cn_to_int(m.group(1)), "title": ln.strip(), "body": []}
         elif cur is not None:
             cur["body"].append(ln)
     if cur is not None:
@@ -109,14 +126,15 @@ def main() -> int:
     chapters = split_chapters(text)
     if len(chapters) < 8:
         issues.append(f"章节数 {len(chapters)} < 8")
-    for idx, ch in enumerate(chapters):
-        if not CHAPTER_RE.match(ch["title"]):
-            issues.append(f"章标题格式错误（需汉字'第X章'）: {ch['title']}")
-            break
     if chapters:
-        first = chapters[0]["title"]
-        if not re.match(rf"^#?\s*第[{CN_NUM}]+章", first):
-            issues.append("章节编号未从'第一章'开始")
+        nums = [ch["num"] for ch in chapters]
+        expected = list(range(1, len(chapters) + 1))
+        if nums != expected:
+            issues.append(f"章节编号应连续：实际 {nums}，应为 {expected}")
+        for ch in chapters:
+            if not CHAPTER_RE.match(ch["title"]):
+                issues.append(f"章标题格式错误（需汉字'第X章'）: {ch['title']}")
+                break
 
     # 5. 占位符
     for m in PLACEHOLDER_RE.finditer(text):
@@ -158,7 +176,10 @@ def main() -> int:
     outline_path = os.path.join(workdir, "outline.md")
     if os.path.isfile(outline_path):
         ot = open(outline_path, encoding="utf-8").read()
-        planned = [int(x) for x in re.findall(r"\| (\d{3,5}) \|", ot)]
+        planned = [
+            int(x.replace(",", ""))
+            for x in re.findall(r"^\|\s*ch\d+\s*\|.*?\|\s*([\d,]+)\s*\|\s*$", ot, re.M)
+        ]
         if planned and sum(planned) != target:
             issues.append(f"大纲章节目标合计 {sum(planned)} != 全书目标 {target}")
 
@@ -166,10 +187,15 @@ def main() -> int:
     ledger_path = os.path.join(workdir, "chapter-ledger.md")
     if os.path.isfile(ledger_path):
         lt = open(ledger_path, encoding="utf-8").read()
-        rows = re.findall(r"\| ch\d+ \| [^|]+ \| (\d+) \| (\d*) \|", lt)
-        empty_cur = [r[0] for r in rows if not r[1].strip()]
+        rows = re.findall(r"\|\s*(ch\d+)\s*\|\s*[^|]+\|\s*([\d,]+)\s*\|\s*([\d,]*)\s*\|", lt)
+        empty_cur = [r[0] for r in rows if not r[2].strip()]
         if empty_cur:
-            issues.append(f"台账未回填当前字数: ch{empty_cur}")
+            issues.append("台账未回填当前字数: " + "、".join(empty_cur))
+        if chapters:
+            expected_ids = {"ch%02d" % i for i in range(1, len(chapters) + 1)}
+            missing_ids = sorted(expected_ids - {r[0] for r in rows})
+            if missing_ids:
+                issues.append("台账缺少章节: " + "、".join(missing_ids))
 
     if issues:
         print("FAIL " + "；".join(issues))

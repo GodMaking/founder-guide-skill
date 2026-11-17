@@ -64,7 +64,7 @@ NN-书名/
 ## 校验
 
 ```bash
-python scripts/distill_check.py <工作目录>
+python3 skills/founder-guide/scripts/distill_check.py <工作目录>
 ```
 
 全部项通过才交付：字数区间、章节数与编号、占位符、中文占比、空章节、层级、台账回填。

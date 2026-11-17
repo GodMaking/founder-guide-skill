@@ -41,6 +41,10 @@ def main() -> int:
     ap.add_argument("--chapters", type=int, default=16, help="章节数")
     args = ap.parse_args()
 
+    if args.chapters < 1 or args.target_words < 1:
+        print("--chapters 和 --target-words 必须大于 0")
+        return 2
+
     if not os.path.isdir(TEMPLATE_DIR):
         print(f"模板目录不存在: {TEMPLATE_DIR}")
         return 2

@@ -95,7 +95,7 @@ def stage_of(scores):
     mn = min(scores.values())
     key = min(order, key=lambda d: scores[d])
     if mn >= 5:
-        return "S5", "四个维度都过硬，进入规模化与护城河", key
+        return "S5", "五个维度都过硬，进入规模化与护城河", key
     return "S4", "主要维度已经过关，补最弱那一项", key
 
 

@@ -1,0 +1,73 @@
+name: 侵权举报
+description: 举报未经授权倒卖、复制或商业分发
+title: "[侵权举报] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你提供线索。请先阅读 [侵权对比清单](https://github.com/GodMaking/founder-guide-skill/blob/main/docs/infringement-checklist.md) 与 [平台投诉模板](https://github.com/GodMaking/founder-guide-skill/blob/main/docs/takedown-templates.md)。
+
+        请注意：**功能相似、主题相同、使用相同的书或方法论，不等于侵权。** 著作权保护具体表达，不保护思想、方法、概念。是否侵权由平台或相关机构依据证据判断。
+
+        **不要在公开 Issue 中填写他人或买家的姓名、电话、地址、身份证等个人信息。**
+
+  - type: input
+    id: link
+    attributes:
+      label: 侵权链接
+      description: 商品/内容/课程/社群的完整 URL
+      placeholder: https://...
+    validations:
+      required: true
+
+  - type: input
+    id: platform
+    attributes:
+      label: 平台与卖家
+      placeholder: 例如：闲鱼，卖家昵称 xxx
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: 侵权形式
+      options:
+        - 复制/打包销售仓库内容
+        - 改名后销售
+        - 付费课程/社群/代做
+        - 集成进付费产品
+        - 未保留 LICENSE/署名
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 证据与对比说明
+      description: 请提供具体相同点，不要只写“很像”
+      placeholder: 例如：目录结构相同；startup_calc.py 逐行相同；README 的“判断器，不是书库”原句相同；案例数字 3500/399/10.3 相同。
+    validations:
+      required: true
+
+  - type: textarea
+    id: timeline
+    attributes:
+      label: 时间线（可选）
+      description: 原作首次公开时间、被举报内容发布时间、取证时间
+      placeholder: 原作首次提交 2026-11-08；对方商品发布 2026-11-12；取证 2026-11-13。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我只陈述可核实的事实，没有虚构或夸大
+          required: true
+        - label: 我没有在公开 Issue 中填写他人隐私信息
+          required: true
+        - label: 我知道是否下架由平台依据证据判断，作者不能保证结果
+          required: true

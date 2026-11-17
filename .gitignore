@@ -14,3 +14,8 @@ skills/founder-guide/assets/samples/*.md
 licenses/
 license-ledger.csv
 _demo_licenses/
+# 预生成授权编号与私有交付目录不入库
+codes-*.csv
+buyers.csv
+buyers-*.csv
+delivery/private/

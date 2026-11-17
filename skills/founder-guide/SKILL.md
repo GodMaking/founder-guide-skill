@@ -1,6 +1,6 @@
 ---
 name: founder-guide
-description: 创业者指南。用 47 本经典书的可执行方法带人创业、判断方向：当用户问"这个生意值不值得做/我的方向对不对/卡在某一步怎么办/要不要投钱/怎么验证需求/现金流能撑多久/怎么量产/怎么带团队"时，先问清事实、定阶段、过四道闸门，输出一张可执行的决策卡；也支持把新书蒸馏成约3万字方法论成书并入书库。
+description: 创业者指南。把 47 本创业经典蒸馏成判断方法，带人判断方向：当用户问"这个生意值不值得做/我的方向对不对/卡在某一步怎么办/要不要投钱/怎么验证需求/现金流能撑多久/怎么量产/怎么带团队"时，先问清事实、定阶段、过四道闸门，输出一张可执行的决策卡；也支持把新书蒸馏成约3万字方法论成书并入书库。
 ---
 
 # founder-guide：创业者指南
@@ -123,7 +123,7 @@ python3 scripts/diagnose.py --answers "0/1/2 共 15 个，逗号分隔"
 
 ## 取件：从书库拿一条
 
-`references/book-map.md` 按处境编排，47 本每本都写明"什么时候翻 / 取哪一条 / 落成什么动作"。
+`references/book-map.md` 按处境编排，47 本书每本都写明"什么时候翻 / 取哪一条 / 落成什么动作"。
 规矩：一次一本一条；取完落成动作；不整本读。
 
 高频入口：
@@ -193,7 +193,7 @@ python3 scripts/diagnose.py --answers "0/1/2 共 15 个，逗号分隔"
 - 不替用户做"要不要押上家庭资产"这类不可逆决定，只给风险清单
 - 书里的数字是原书案例，不是你的指标；引用时必须写清是案例还是你的数据
 - 蒸馏只处理有真实源书的书；成书是浓缩转述，交付原书与否按用户要求
-- 不擅自把成书导入飞书云文档（历史 47 本用户明确 SKIP_LARK=1）
+- 不擅自把成书导入飞书云文档（历史批量蒸馏时用户明确 SKIP_LARK=1）
 
 ## 资产
 
@@ -201,9 +201,18 @@ python3 scripts/diagnose.py --answers "0/1/2 共 15 个，逗号分隔"
 - `references/execution-playbook.md`：各阶段动作清单与死法
 - `references/business-models.md`：五类生意的必算数与一票否决线
 - `references/interview-and-offer.md`：十人访谈脚本、一页报价单、异议应对、30 天日历
-- `references/book-map.md`：47 本按处境索引
+- `references/book-map.md`：47 本书按处境索引
 - `references/distill-workflow.md`：蒸书细则
 - `assets/templates/decision-card.md`：决策卡模板；`assets/samples/decision-card-example.md`：填好的示范卡
 - `assets/samples/case-book.md`：三段完整判断（内容付费 / 实体门店 / 软件工具），用户问"具体怎么做"时给对应案例
-- `assets/templates/`：四件套模板；`assets/samples/`：2 本成书样例 + `books_index.json`（47 本）
+- `assets/templates/`：四件套模板；`assets/samples/`：成书结构范式、示范决策卡、三段案例 + `books_index.json`（47 条书目索引，46 本原书）
 - `scripts/startup_calc.py`：闸门速算；`scripts/diagnose.py`：15 题阶段自测；`scripts/profile.py`：档案读写与完整度检查（init/set/check/log/show）；`scripts/make_workspace.py`；`scripts/distill_check.py`
+
+## 许可与商业使用
+
+- 免费：个人学习、研究、试验、非商业读书会、学校/公益机构内部使用，按 PolyForm Noncommercial 1.0.0。
+- 商业：在自己的经营项目中使用需取得作者的书面个人商业使用授权；团队/企业商业使用、商业产品集成、白标分销需另签。
+- 禁止：转售、分销、公开传播、子授权、付费课程/社群/代做、打包进付费产品。
+- 源码始终公开；付费买的是商业授权、作者后期制作的中文安装使用教程与约定范围内的更新/答疑，不是解锁源码。
+- 涉及蒸馏成书时，原书著作权归原作者与出版方；购买 Skill 授权不等于获得原书传播权。
+- 详细条款见仓库根目录 `COMMERCIAL-LICENSE.md`。

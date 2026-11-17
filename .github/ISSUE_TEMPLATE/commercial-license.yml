@@ -1,0 +1,86 @@
+name: 商业授权申请
+description: 申请个人商业使用授权，或咨询团队/企业授权
+title: "[商业授权] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你申请商业授权。请先阅读 [LICENSE](https://github.com/GodMaking/founder-guide-skill/blob/main/LICENSE) 与 [COMMERCIAL-LICENSE.md](https://github.com/GodMaking/founder-guide-skill/blob/main/COMMERCIAL-LICENSE.md)。
+
+        **不要在公开 Issue 中填写身份证、住址、电话、完整订单号、支付信息等敏感信息。** 作者会通过私下渠道确认范围与价格。
+
+  - type: dropdown
+    id: entity
+    attributes:
+      label: 使用主体
+      options:
+        - 个人（本人经营项目）
+        - 团队（多人）
+        - 企业/机构
+        - 其他
+    validations:
+      required: true
+
+  - type: input
+    id: project
+    attributes:
+      label: 项目/业务名称
+      placeholder: 例如：独立开发者周报工具
+    validations:
+      required: true
+
+  - type: textarea
+    id: usage
+    attributes:
+      label: 使用场景
+      description: 说明你打算怎么用，是否对外交付、收费、集成进产品
+      placeholder: 例如：用于我自己的咨询项目做创业方向判断；不对外分发 Skill 本身。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: seats
+    attributes:
+      label: 预计使用人数
+      options:
+        - 1 人
+        - 2–5 人
+        - 6–20 人
+        - 20 人以上
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tutorial
+    attributes:
+      label: 是否需要中文安装与使用教程
+      options:
+        - 需要
+        - 不需要
+    validations:
+      required: true
+
+  - type: dropdown
+    id: delivery
+    attributes:
+      label: 交付形式
+      options:
+        - 仅本人自用
+        - 对客户交付报告/咨询成果
+        - 集成进付费产品/服务
+        - 付费课程/社群
+        - 其他
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我已阅读 LICENSE 与 COMMERCIAL-LICENSE.md
+          required: true
+        - label: 我知道商业授权不包含原书版权、转售权、子授权、收益承诺
+          required: true
+        - label: 我不会在公开 Issue 中填写个人敏感信息
+          required: true

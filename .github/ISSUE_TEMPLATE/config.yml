@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 商业授权说明
+    url: https://github.com/GodMaking/founder-guide-skill/blob/main/COMMERCIAL-LICENSE.md
+    about: 免费/付费范围、付费交付、禁止倒卖、正版核验
+  - name: 安装与常见问题
+    url: https://github.com/GodMaking/founder-guide-skill#常见问题
+    about: 安装命令、环境要求、常见报错与许可 FAQ
+  - name: 版权与维权文档
+    url: https://github.com/GodMaking/founder-guide-skill/blob/main/docs/copyright-evidence.md
+    about: 权属证据整理、侵权对比清单、平台投诉模板
